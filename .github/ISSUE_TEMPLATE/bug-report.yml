@@ -1,0 +1,65 @@
+name: Bug report
+description: Report something in RunLens that does not work as described.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please do not paste secrets, tokens, or private build logs. Redact organization and project names if needed.
+  - type: input
+    id: version
+    attributes:
+      label: RunLens version
+      description: Shown in the Marketplace listing or in vss-extension.json.
+      placeholder: "1.0.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: pipeline-type
+    attributes:
+      label: Pipeline type
+      options:
+        - YAML pipeline
+        - Classic release or build pipeline
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect to see?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open a failed build
+        2. Select the RunLens tab
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Which section is affected?
+      options:
+        - Failure analysis
+        - Performance breakdown
+        - Setup or loading
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: error-text
+    attributes:
+      label: Error text shown in RunLens (optional)
+      description: Copy the text exactly, after removing anything private.
+      render: text
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, operating system, and whether you use light or dark theme.
